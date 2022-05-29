@@ -1,5 +1,7 @@
 package ma.servicessanitaires.services.ConsultationService;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import ma.servicessanitaires.dtos.ConsultationDto;
 import ma.servicessanitaires.entities.*;
 import ma.servicessanitaires.exceptions.MedecinNotFoundException;
@@ -10,10 +12,15 @@ import ma.servicessanitaires.repositories.ConsultationRepo;
 import ma.servicessanitaires.repositories.MedecinRepo;
 import ma.servicessanitaires.repositories.PatientRepo;
 import ma.servicessanitaires.repositories.TypeConsultationRepo;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
+@Transactional
+@AllArgsConstructor
+@Slf4j
 public class ConsultationSerImpl implements ConsultationSer {
     private PatientRepo patientRepo;
     private MedecinRepo medecinRepo;

@@ -2,6 +2,7 @@ package ma.servicessanitaires.mappers;
 
 import lombok.AllArgsConstructor;
 import ma.servicessanitaires.dtos.ConsultationDto;
+import ma.servicessanitaires.dtos.MedecinDto;
 import ma.servicessanitaires.dtos.PatientDto;
 import ma.servicessanitaires.dtos.RendezVousDto;
 import ma.servicessanitaires.entities.*;

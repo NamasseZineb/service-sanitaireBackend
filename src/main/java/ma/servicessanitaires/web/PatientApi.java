@@ -2,9 +2,13 @@ package ma.servicessanitaires.web;
 
 import lombok.AllArgsConstructor;
 import ma.servicessanitaires.dtos.PatientDto;
+import ma.servicessanitaires.entities.Patient;
 import ma.servicessanitaires.exceptions.PatientNotFoundException;
 import ma.servicessanitaires.services.ConsultationService.ConsultationSer;
 import ma.servicessanitaires.services.patientService.PatientSer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +35,9 @@ public class PatientApi {
     public PatientDto updatePatients(@PathVariable Long patientId, @RequestBody PatientDto patientDto){
         patientDto.setId(patientId);
         return patientSer.updatePatient(patientDto);
+    }
+    @DeleteMapping("/patients/{id}")
+    public void deletePatient(@PathVariable Long id){
+        patientSer.deletePatient(id);
     }
 }

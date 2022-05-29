@@ -1,5 +1,6 @@
 package ma.servicessanitaires.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,11 @@ import javax.persistence.*;
 public class Specialite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(unique = true)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String specialite;
+
+
+
 }

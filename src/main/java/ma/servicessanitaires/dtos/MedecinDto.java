@@ -1,9 +1,10 @@
 package ma.servicessanitaires.dtos;
 
+import lombok.Data;
 import ma.servicessanitaires.entities.Specialite;
 
 import java.util.Date;
-
+@Data
 public class MedecinDto {
     private Long id;
     private String nom;

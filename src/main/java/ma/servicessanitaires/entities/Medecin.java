@@ -1,8 +1,7 @@
 package ma.servicessanitaires.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -16,5 +15,6 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue("MD")
 public class Medecin extends Personne{
     @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Specialite specialite;
 }

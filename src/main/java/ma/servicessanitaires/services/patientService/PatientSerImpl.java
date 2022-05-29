@@ -12,6 +12,7 @@ import ma.servicessanitaires.exceptions.PatientNotFoundException;
 import ma.servicessanitaires.exceptions.RendezvousNotFoundException;
 import ma.servicessanitaires.mappers.PatientMapper;
 import ma.servicessanitaires.repositories.PatientRepo;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -70,4 +71,11 @@ public class PatientSerImpl implements PatientSer {
     public Patient Connect(String email, String pwd) {
         return patientRepo.findByEmailAndPwd(email,pwd);
     }
+
+    @Override
+    public void deletePatient(Long id) {
+        patientRepo.deleteById(id);
+    }
+
+
 }
