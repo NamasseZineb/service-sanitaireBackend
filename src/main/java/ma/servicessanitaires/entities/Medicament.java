@@ -25,6 +25,8 @@ public class Medicament {
     private String uniteDeMesure;
     private String description;
     private String urlImg;
+    @OneToOne
+    private Image image;
     private String forme;
     private String effetsSecondaires;
     @ManyToMany

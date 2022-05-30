@@ -1,8 +1,11 @@
 package ma.servicessanitaires.services.patientService;
 
+import ma.servicessanitaires.dtos.ConsultationDto;
 import ma.servicessanitaires.dtos.PatientDto;
 import ma.servicessanitaires.entities.Patient;
+import ma.servicessanitaires.exceptions.MedecinNotFoundException;
 import ma.servicessanitaires.exceptions.PatientNotFoundException;
+import ma.servicessanitaires.exceptions.TypeConsultationNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -16,5 +19,8 @@ public interface PatientSer {
     PatientDto getPatient(Long id) throws PatientNotFoundException;
     Patient Connect(String email,String pwd);
     void deletePatient(Long id);
+    List<ConsultationDto> listConsultationsByPatient(Long patientId) throws PatientNotFoundException;
+    List<ConsultationDto> listConsultationsByMedecin(Long patientId,Long medecinId) throws PatientNotFoundException, MedecinNotFoundException;
+    List<ConsultationDto> listConsultationsByType(Long patientId, int typeId) throws TypeConsultationNotFoundException, PatientNotFoundException;
 
 }

@@ -14,12 +14,15 @@ import ma.servicessanitaires.repositories.PatientRepo;
 import ma.servicessanitaires.repositories.TypeConsultationRepo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import ma.servicessanitaires.repositories.ImageRepo;
+import ma.servicessanitaires.entities.*;
 
 @Service
 @AllArgsConstructor
 public class PatientMapper {
     private PatientRepo patientRepo;
     private MedecinRepo medecinRepo;
+    private ImageRepo imageRepo;
     private TypeConsultationRepo typeConsultationRepo;
     public PatientDto fromPatient(Patient patient){
         PatientDto patientDTO=new PatientDto();
@@ -28,7 +31,9 @@ public class PatientMapper {
     }
     public Patient fromPatientDto(PatientDto patientDto){
         Patient patient=new Patient();
+        Image image = imageRepo.findById(patientDto.getImageId()).orElse(null);
         BeanUtils.copyProperties(patientDto,patient);
+        patient.setImage(image);
         return patient;
     }
 

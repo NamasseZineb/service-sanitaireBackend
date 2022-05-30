@@ -15,7 +15,7 @@ public class MedicamentDto {
     private Double mesure;
     private String uniteDeMesure;
     private String description;
-    private String urlImg;
+    private Long imageId;
     private String forme;
     private String effetsSecondaires;
     private List<TraitementUsage> traitementUsages;

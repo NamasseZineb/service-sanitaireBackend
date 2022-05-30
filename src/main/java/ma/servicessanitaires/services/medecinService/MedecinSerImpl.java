@@ -27,7 +27,7 @@ public class MedecinSerImpl implements MedecinSer {
 
     @Override
     public MedecinDto createMedecin(MedecinDto medecinDto){
-        medecinDto.setImgUrl(setMedecinImgUrl());
+        System.out.println(medecinDto);
         Medecin medecin=medecinMapper.fromMedecinDto(medecinDto);
         Medecin savedMedecin=medecinRepo.save(medecin);
         return medecinMapper.fromMedecin(medecin);
